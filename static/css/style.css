@@ -1,0 +1,11 @@
+.collapsible {
+    /*  */
+}
+
+.toggle {
+	display: hidden;
+}
+
+li {
+	list-style-type: none;
+}
