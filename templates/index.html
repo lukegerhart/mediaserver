@@ -2,19 +2,20 @@
 <html>
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet", href="{{url_for("static", filename="css/style.css")}}", type="text/css"/>
+		<link rel="stylesheet" href="{{url_for("static", filename="css/style.css")}}", type="text/css"/>
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<script type="text/javascript" src="{{url_for("static", filename="js/CollapsibleLists.js")}}"></script>
 	</head>
 	<body>
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-4">
-					<ul class="fa-ul">
+					<ul class="fa-ul collapsibleList">
 						{%- for item in dir recursive %}
 							<li {%- if item['children'] or item['files'] %} class="collapsible" {%- endif -%} > 
 							{%- if item['children'] or item['files'] -%}
-								<span class="fa-li"><i class="fas fa-caret-down"></i></span>
+								<span class="fa-li"><i class="fas fa-caret-right"></i></span>
 							{%- endif %}{{item}}
 							{%- if item['children'] %}
 							<ul class="submenu toggle fa-ul">
@@ -34,4 +35,8 @@
 			</div>
 		</div>
 	</body>
+	
+	<script type="text/javascript">
+	CollapsibleLists.apply();
+	</script>
 </html>
