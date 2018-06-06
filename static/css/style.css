@@ -1,3 +1,18 @@
 li {
 	list-style-type: none;
 }
+
+.collapsibleList li{
+  list-style-image : url('button.png');
+  cursor           : auto;
+}
+
+li.collapsibleListOpen{
+  list-style-image : url('images/down.png');
+  cursor           : pointer;
+}
+
+li.collapsibleListClosed{
+  list-style-image : url('images/right.png');
+  cursor           : pointer;
+}
