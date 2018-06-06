@@ -2,10 +2,22 @@
 <html>
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<script type="text/javasript">
-			var dir = {{dir||safe}};
+		<script type="text/javascript">
+			var dir  = {{dir|safe}};
+			console.log(dir);
 		</script>
 	</head>
 	<body>
+		<ul>
+			{%- for item in dir recursive %}
+				<li>{{item}}
+				{%- if item['children'] -%}
+					<ul class="submenu">{{ loop(item['children']) }}</ul>
+				{%- endif %} </li>
+				{%- if item['files'] -%}
+					<ul class="submenu">{{ loop(item['files']) }}</ul>
+				{%- endif %} </li>
+			{% endfor %}
+		</ul>
 	</body>
 </html>
