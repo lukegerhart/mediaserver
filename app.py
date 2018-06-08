@@ -1,9 +1,11 @@
 from flask import Flask, Response, render_template
 from PIL import Image
 from utils import generateList
+from conf import conf
 import io, json
 app = Flask(__name__)
-basedir = '/media/pi/Seagate Backup Plus Drive1/'
+basedir = conf['BASEDIR']
+# basedir = '/media/pi/Seagate Backup Plus Drive1/'
 # basedir = 'G:\\'
 @app.route('/')
 def home():

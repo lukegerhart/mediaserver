@@ -1,6 +1,7 @@
 import os
 from collections import OrderedDict
 from itertools import chain
+from conf import conf
 def generateDir(basedir):
     dir = OrderedDict()
     for root, dirs, files in os.walk(basedir):
@@ -48,7 +49,7 @@ def generateList(basedir):
         if path == basedir:
             continue
         
-        rel = path[len(basedir):].split('/')
+        rel = path[len(basedir):].split(conf['SEP'])
         if len(rel) == 1:
             folder = Folder(rel[0])
             folder.add_files(files)
