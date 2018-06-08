@@ -48,7 +48,7 @@ def generateList(basedir):
         if path == basedir:
             continue
         
-        rel = path[len(basedir):].split('\\')
+        rel = path[len(basedir):].split('/')
         if len(rel) == 1:
             folder = Folder(rel[0])
             folder.add_files(files)
