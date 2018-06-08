@@ -3,7 +3,8 @@ from PIL import Image
 from utils import generateList
 import io, json
 app = Flask(__name__)
-basedir = '/media/pi/Seagate Backup Plus Drive1/'
+# basedir = '/media/pi/Seagate Backup Plus Drive1/'
+basedir = 'G:\\'
 @app.route('/')
 def home():
     dir = generateList(basedir)
